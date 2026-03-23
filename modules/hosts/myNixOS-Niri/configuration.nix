@@ -209,6 +209,8 @@
     system.stateVersion = "26.05";
 
     environment.systemPackages = with pkgs; [
+      noctalia-shell
+      quickshell
       google-chrome
       discord-canary
       fastfetch

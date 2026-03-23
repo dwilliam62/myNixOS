@@ -1,13 +1,20 @@
-{ self, inputs, ... }:
 {
-  flake.nixosModules.niri = { pkgs, lib, ... }: {
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.niri = {
+    pkgs,
+    lib,
+    ...
+  }: {
     programs.niri = {
       enable = true;
       package = pkgs.niri;
     };
     environment.etc."xdg/niri/config.kdl".text = ''
-      hotkey-overlay { 
-         skip-at-startup 
+      hotkey-overlay {
+         skip-at-startup
       }
 
       environment {
@@ -74,12 +81,12 @@
       layout {
          gaps 4
 
-         background-color "transparent" 
+         background-color "transparent"
 
          default-column-width { proportion 0.75; }
-         
+
          focus-ring { off; }
-         border { 
+         border {
               // off;
               width 4
               active-color "#ffc87f"
@@ -101,12 +108,12 @@
          }
       }
 
-      spawn-at-startup "nm-applet"
-      spawn-at-startup "blueman-applet"
-      spawn-at-startup "udiskie"
-      spawn-at-startup "start-polkit-agent"
+      // spawn-at-startup "nm-applet"
+      // spawn-at-startup "blueman-applet"
+      // spawn-at-startup "udiskie"
+      // spawn-at-startup "start-polkit-agent"
       spawn-at-startup "swww-daemon"
-      spawn-at-startup "dms" "run"
+      spawn-at-startup "noctalia-shell"
       // spawn-at-startup "waybar-niri"
       // Restore last wallpaper selection (after bar starts)
       spawn-at-startup "waypaper" "--restore"
@@ -165,21 +172,18 @@
       binds {
       // Apps
          Mod+Shift+Slash                                { show-hotkey-overlay; }
-         Mod+A                                          { toggle-overview; } 
+         Mod+A                                          { toggle-overview; }
          // Mod+Shift+equal                                { set-column-width "75%"; }
          Mod+Return                                     { spawn "kitty"; }
          Mod+D                                          { spawn "rofi-legacy.menu"; }
          Mod+L                                          { spawn "swaylock"; }
          Mod+Shift+W                                    { spawn "qs-wallpapers-apply"; }
          Super+Alt+L                                    { spawn "swaylock"; }
-                      
          Mod+Ctrl+B                                     { spawn "google-chrome-stable"; }
         // Mod+Ctrl+P                                     { spawn ""; }
          Mod+Ctrl+E                                     { spawn "emacs"; }
          Mod+Ctrl+T                                     { spawn "thunar"; }
-                
          Mod+Q                                          { close-window; }
-          
          Mod+Left                                       { focus-column-left; }
          Mod+Down                                       { focus-window-or-workspace-down; }
          Mod+Up                                         { focus-window-or-workspace-up; }
@@ -226,7 +230,6 @@
          Mod+WheelScrollLeft                            { focus-column-left; }
          Mod+Ctrl+WheelScrollRight                      { move-column-right; }
          Mod+Ctrl+WheelScrollLeft                       { move-column-left; }
-         
          Mod+Shift+WheelScrollDown                      { focus-column-right; }
          Mod+Shift+WheelScrollUp                        { focus-column-left; }
          Mod+Ctrl+Shift+WheelScrollDown                 { move-column-right; }
@@ -256,7 +259,6 @@
 
          Mod+Comma                                      { consume-window-into-column; }
          Mod+Period                                     { expel-window-from-column; }
-         
          Mod+R                                          { switch-preset-column-width; }
          Mod+Shift+R                                    { switch-preset-window-height; }
          Mod+Ctrl+R                                     { reset-window-height; }
@@ -270,7 +272,6 @@
 
          Mod+Shift+Minus                                { set-window-height "-10%"; }
          Mod+Shift+Equal                                { set-window-height "+10%"; }
-         
          Mod+V                                          { toggle-window-floating; }
          Mod+Space                                      { toggle-window-floating; }
          Mod+Shift+V                                    { switch-focus-between-floating-and-tiling; }
@@ -315,8 +316,8 @@
       }
 
       window-rule {
-         match app-id="kitty" 
-         default-column-width { proportion 0.75;} 
+         match app-id="kitty"
+         default-column-width { proportion 0.75;}
       }
 
       window-rule {
@@ -341,7 +342,7 @@
 
 
       window-rule {
-         match app-id="pragtical" 
+         match app-id="pragtical"
          match app-id="zen"
          open-on-workspace "WRK"
          default-column-width { proportion 1.0; }
@@ -382,8 +383,7 @@
       }
 
       // layer-rule {
-      //   match namespace="waybar"  
-          
+      //   match namespace="waybar"
       //    shadow {
       //      on
       //      softness 2
@@ -399,4 +399,3 @@
     '';
   };
 }
-
