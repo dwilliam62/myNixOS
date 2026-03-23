@@ -168,7 +168,7 @@
          Mod+A                                          { toggle-overview; } 
          // Mod+Shift+equal                                { set-column-width "75%"; }
          Mod+Return                                     { spawn "kitty"; }
-         Mod+D                                          { spawn "rofi" "-show" "drun"; }
+         Mod+D                                          { spawn "rofi-legacy.menu"; }
          Mod+L                                          { spawn "swaylock"; }
          Mod+Shift+W                                    { spawn "qs-wallpapers-apply"; }
          Super+Alt+L                                    { spawn "swaylock"; }
