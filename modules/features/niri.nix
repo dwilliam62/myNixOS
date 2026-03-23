@@ -400,7 +400,7 @@
   };
 
   perSystem = { pkgs, ... }: {
-    packages.myNiri = inputs.wrapper-modules.wrappers.niri.warp;
+    packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap;
   };
 }
 
