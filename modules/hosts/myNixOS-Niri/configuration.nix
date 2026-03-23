@@ -208,6 +208,7 @@
       btop
       pciutils
       btrfs-progs
+      nwg-look
       wget
       curl
       neovim
