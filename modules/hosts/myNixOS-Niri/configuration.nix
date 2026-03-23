@@ -89,6 +89,7 @@
       google-chrome
       discord-canary
       fastfetch
+      onefetch
       waypaper
       swww
       swaybg
