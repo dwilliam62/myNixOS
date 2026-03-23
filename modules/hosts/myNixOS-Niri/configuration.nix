@@ -59,10 +59,10 @@
     services.openssh.enable = true;
     services.displayManager.ly.enable = true;
 
-  systemd.tmpfiles.rules = [
-    "d /home/dwilliams/.config/niri 0700 dwilliams users - -"
-    "L+ /home/dwilliams/.config/niri/config.kdl - - - - /etc/xdg/niri/config.kdl"
-  ];
+    systemd.tmpfiles.rules = [
+      "d /home/dwilliams/.config/niri 0700 dwilliams users - -"
+      "L+ /home/dwilliams/.config/niri/config.kdl - - - - /etc/xdg/niri/config.kdl"
+    ];
 
     boot.loader.grub.enable = false;
     nixpkgs.config.allowUnfree = true;
@@ -88,7 +88,10 @@
     environment.systemPackages = with pkgs; [
       google-chrome
       discord-canary
-      vim
+      fastfetch
+      waypaper
+      swww
+      swaybg
       git
       ncftp
       htop
