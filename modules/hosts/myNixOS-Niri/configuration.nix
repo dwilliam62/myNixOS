@@ -3,7 +3,7 @@
  flake.nixosModules.myMachineConfiguration = { pkgs, lib, ...}: { 
   imports = [ 
    self.nixosModules.myMachineHardware
-
+   self.nixosModules.niri
   ]; 
 
   nix.settings = {
@@ -74,10 +74,10 @@
 
 
   environment.systemPackages = with pkgs; [ 
-   firefox vim git ncftp htop btop pciutils btrfs-progs wget curl
-    neovim gnused gawk ripgrep gnugrep findutils coreutils
+    google-chrome discord-canary vim git ncftp htop btop pciutils btrfs-progs 
+    wget curl neovim gnused gawk ripgrep gnugrep findutils coreutils
     bottom luarocks gping kitty rofi zoxide starship eza bat 
-    ncdu tree clang zig tmux 
+    ncdu tree clang zig tmux ghostty 
    ];
  };
 }
