@@ -50,6 +50,7 @@
   };
 
   services.openssh.enable = true;
+  services.displayManager.ly.enable = true;
 
   boot.loader.grub.enable = false;
   nixpkgs.config.allowUnfree = true;
