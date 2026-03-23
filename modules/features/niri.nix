@@ -3,7 +3,7 @@
   flake.nixosModules.niri = { pkgs, lib, ... }: {
     programs.niri = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
+      package = pkgs.niri;
     };
     environment.etc."xdg/niri/config.kdl".text = ''
       hotkey-overlay { 
@@ -397,10 +397,6 @@
         place-within-backdrop true
       }
     '';
-  };
-
-  perSystem = { pkgs, ... }: {
-    packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap;
   };
 }
 
