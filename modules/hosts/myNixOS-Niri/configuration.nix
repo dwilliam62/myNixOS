@@ -209,6 +209,8 @@
     system.stateVersion = "26.05";
 
     environment.systemPackages = with pkgs; [
+      libnotify 
+      nh 
       noctalia-shell
       quickshell
       google-chrome
@@ -217,7 +219,6 @@
       onefetch
       waypaper
       swww
-      swaybg
       git
       ncftp
       htop
