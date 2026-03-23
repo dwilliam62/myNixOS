@@ -59,6 +59,11 @@
     services.openssh.enable = true;
     services.displayManager.ly.enable = true;
 
+  systemd.tmpfiles.rules = [
+    "d /home/dwilliams/.config/niri 0700 dwilliams users - -"
+    "L+ /home/dwilliams/.config/niri/config.kdl - - - - /etc/xdg/niri/config.kdl"
+  ];
+
     boot.loader.grub.enable = false;
     nixpkgs.config.allowUnfree = true;
 
