@@ -13,6 +13,20 @@
       self.nixosModules.niri
     ];
 
+    environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-theme-name=adw-gtk3-dark
+      gtk-application-prefer-dark-theme=1
+      gtk-icon-theme-name=Papirus-Dark
+    '';
+
+    environment.etc."xdg/gtk-4.0/settings.ini".text = ''
+      [Settings]
+      gtk-theme-name=adw-gtk3-dark
+      gtk-application-prefer-dark-theme=1
+      gtk-icon-theme-name=Papirus-Dark
+    '';
+
     environment.etc."xdg/rofi/legacy.config.rasi".text = ''
       @theme "/dev/null"
 
@@ -169,7 +183,7 @@
     ];
 
     environment.sessionVariables = {
-      GTK_THEME = "Adwaita-dark";
+      GTK_THEME = "adw-gtk3-dark";
       GTK_APPLICATION_PREFER_DARK_THEME = "1";
     };
 
@@ -238,11 +252,13 @@
       (writeShellScriptBin "rofi-legacy.menu" ''
         rofi -config ~/.config/rofi/legacy.config.rasi -show drun
       '')
-      xfce.thunar
-      xfce.thunar-archive-plugin
-      xfce.thunar-volman
-      xfce.thunar-media-tags-plugin
-      xfce.tumbler
+      thunar
+      thunar-archive-plugin
+      thunar-volman
+      thunar-media-tags-plugin
+      tumbler
+      adw-gtk3
+      papirus-icon-theme
     ];
   };
 }
