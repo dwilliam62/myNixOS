@@ -112,15 +112,15 @@
       // spawn-at-startup "blueman-applet"
       // spawn-at-startup "udiskie"
       // spawn-at-startup "start-polkit-agent"
-      spawn-at-startup "swww-daemon"
+      // spawn-at-startup "swww-daemon"
       spawn-at-startup "noctalia-shell"
       // spawn-at-startup "waybar-niri"
       // Restore last wallpaper selection (after bar starts)
-      spawn-at-startup "waypaper" "--restore"
+      // spawn-at-startup "waypaper" "--restore"
 
-      switch-events {
-         lid-close {spawn "swaylock";}
-      }
+      // switch-events {
+      //    lid-close {spawn "swaylock";}
+      // }
 
       cursor {
          xcursor-theme "Pop"
@@ -130,7 +130,7 @@
       }
 
       prefer-no-csd
-      screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+      screenshot-path "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d %H-%M-%S.png"
 
       animations {
          workspace-switch {
@@ -188,24 +188,24 @@
          Mod+Down                                       { focus-window-or-workspace-down; }
          Mod+Up                                         { focus-window-or-workspace-up; }
          Mod+Right                                      { focus-column-right; }
-         // Mod+H                                       { focus-column-left; }
-         // Mod+J                                       { focus-window-down; }
-         // Mod+K                                       { focus-window-up; }
-         // Mod+L                                       { focus-column-right; }
+         //  Mod+H                                       { focus-column-left; }
+         //  Mod+J                                       { focus-window-down; }
+         //  Mod+K                                       { focus-window-up; }
+         //  Mod+L                                       { focus-column-right; }
 
          Mod+Ctrl+Left                                  { move-column-left; }
          Mod+Ctrl+Down                                  { move-window-down; }
          Mod+Ctrl+Up                                    { move-window-up; }
          Mod+Ctrl+Right                                 { move-column-right; }
-         // Mod+Ctrl+H                                  { move-column-left; }
-         // Mod+Ctrl+J                                  { move-window-down; }
-         // Mod+Ctrl+K                                  { move-window-up; }
-         // Mod+Ctrl+L                                  { move-column-right; }
+         Mod+Ctrl+H                                  { move-column-left; }
+         Mod+Ctrl+J                                  { move-window-down; }
+         Mod+Ctrl+K                                  { move-window-up; }
+          Mod+Ctrl+L                                  { move-column-right; }
 
-         Mod+Home                                       { focus-column-first; }
-         Mod+End                                        { focus-column-last; }
-         Mod+Ctrl+Home                                  { move-column-to-first; }
-         Mod+Ctrl+End                                   { move-column-to-last; }
+         // Mod+Home                                       { focus-column-first; }
+         // Mod+End                                        { focus-column-last; }
+         // Mod+Ctrl+Home                                  { move-column-to-first; }
+         // Mod+Ctrl+End                                   { move-column-to-last; }
 
          Mod+Shift+Down                                 { focus-workspace-down; }
          Mod+Shift+Up                                   { focus-workspace-up; }
