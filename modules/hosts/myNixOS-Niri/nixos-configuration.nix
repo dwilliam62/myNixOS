@@ -17,7 +17,7 @@
   };
 
   networking = {
-    hostName = "MyNixOS-Niri";
+    hostName = "PBS3-2TB";
     networkmanager.enable = true;
     firewall.enable = false;
   };

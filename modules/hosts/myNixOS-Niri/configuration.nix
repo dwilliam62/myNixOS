@@ -10,6 +10,7 @@
   }: {
     imports = [
       self.nixosModules.myMachineHardware
+      self.nixosModules.nixos-pbs
       self.nixosModules.niri
     ];
 
@@ -135,6 +136,10 @@
     programs = {
       zsh.enable = true;
       mtr.enable = true;
+      appimage = {
+        enable = true;
+        binfmt = true;
+      };
       neovim = {
         enable = true;
         defaultEditor = true;
@@ -155,7 +160,7 @@
     };
 
     networking = {
-      hostName = "MyNixOS-Niri";
+      hostName = "PBS3-2TB";
       networkmanager.enable = true;
       firewall.enable = false;
     };
@@ -173,6 +178,10 @@
     services.openssh.enable = true;
     services.displayManager.ly.enable = true;
     services.tumbler.enable = true;
+    services.proxmox-backup-server = {
+      enable = true;
+      openFirewall = true;
+    };
 
     systemd.tmpfiles.rules = [
       "d /home/dwilliams/.config/niri 0700 dwilliams users - -"
@@ -185,6 +194,8 @@
     environment.sessionVariables = {
       GTK_THEME = "adw-gtk3-dark";
       GTK_APPLICATION_PREFER_DARK_THEME = "1";
+      WARP_ENABLE_WAYLAND = "1";
+      LD_LIBRARY_PATH = "/run/current-system/sw/lib";
     };
 
     boot.loader.grub.enable = false;
@@ -210,6 +221,9 @@
 
     environment.systemPackages = with pkgs; [
       libnotify 
+      e2fsprogs
+      xfsprogs 
+      util-linux
       nh 
       noctalia-shell
       quickshell
@@ -217,8 +231,15 @@
       discord-canary
       fastfetch
       onefetch
+      gearlever
+      yazi 
+      dysk
+      ugrep 
+      ttop 
+      atop 
+      cargo
       waypaper
-      swww
+      awww
       git
       ncftp
       htop
@@ -252,6 +273,9 @@
       ghostty
       alacritty
       rofi
+      warp-terminal
+      wayland
+      libxkbcommon
       (writeShellScriptBin "rofi-legacy.menu" ''
         rofi -config ~/.config/rofi/legacy.config.rasi -show drun
       '')

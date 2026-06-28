@@ -1,6 +1,6 @@
 { self, inputs, ...}: {
 
-  flake.nixosConfigurations.MyNixOS-Niri = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations."PBS3-2TB" = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.myMachineConfiguration
       ];

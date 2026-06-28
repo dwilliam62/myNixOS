@@ -47,6 +47,12 @@
       options = [ "rw" "bg" "tcp" "_netdev" ];
     };
 
+  fileSystems."/mnt/datastore/PBS3-2TB" = {
+  device = "/dev/disk/by-uuid/fb168b5a-51f8-45c0-9389-e182682a8142"; 
+  fsType = "ext4";
+  options = [ "defaults" "noatime" ];
+};
+
   swapDevices = [ ];
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
