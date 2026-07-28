@@ -10,7 +10,16 @@
   }: {
     programs.niri = {
       enable = true;
-      package = pkgs.niri;
+      # Workaround: nixpkgs bumped libdisplay-info to 0.4.0 but niri 26.04's
+      # libdisplay-info-sys-0.3.0 Rust crate requires "< 0.4.0".
+      package = pkgs.niri.overrideAttrs (old: {
+        postPatch =
+          (old.postPatch or "")
+          + ''
+            find /build -name "Cargo.toml" -path "*libdisplay-info-sys*" | \
+              xargs sed -i 's/version = ">= 0.1.0, < 0.4.0"/version = ">= 0.1.0, < 0.5.0"/g'
+          '';
+      });
     };
     environment.etc."xdg/niri/config.kdl".text = ''
       hotkey-overlay {
