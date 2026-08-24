@@ -218,7 +218,7 @@
       fastfetch
       onefetch
       waypaper
-      swww
+      awww
       git
       ncftp
       htop
