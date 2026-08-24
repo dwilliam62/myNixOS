@@ -10,6 +10,7 @@
   }: {
     imports = [
       self.nixosModules.myMachineHardware
+      self.nixosModules.fonts
       self.nixosModules.niri
     ];
 
@@ -155,7 +156,7 @@
     };
 
     networking = {
-      hostName = "MyNixOS-Niri";
+      hostName = "myNixOS-Niri";
       networkmanager.enable = true;
       firewall.enable = false;
     };
@@ -210,6 +211,7 @@
 
     environment.systemPackages = with pkgs; [
       libnotify 
+      cliamp
       nh 
       noctalia-shell
       quickshell

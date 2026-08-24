@@ -14,6 +14,7 @@
         ./modules/hosts/myNixOS-Niri/default.nix
         ./modules/hosts/myNixOS-Niri/configuration.nix
         ./modules/hosts/myNixOS-Niri/hardware.nix
+        ./modules/hosts/myNixOS-Niri/fonts.nix
         ./modules/features/niri.nix
       ];
     };
